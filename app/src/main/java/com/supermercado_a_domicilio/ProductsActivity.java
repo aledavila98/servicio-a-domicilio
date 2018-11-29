@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -28,26 +29,24 @@ public class ProductsActivity extends AppCompatActivity {
 
 
         ListView lista = (ListView) findViewById(R.id.ListView_products);
-        lista.setAdapter(new Lista_adaptador(this, R.layout.activity_products, datos) {
+        lista.setAdapter(new Lista_adaptador(this, R.layout.model_product, datos) {
 
             @Override
             public void onEntrada(final Object entrada, View view) {
-                TextView texto_precio = (TextView) view.findViewById(R.id.txtPrecio);
-                texto_precio.setText(String.valueOf(((ProductModel) entrada).getPrice()));
 
                 TextView texto_superior_entrada = (TextView) view.findViewById(R.id.textView_superior);
                 texto_superior_entrada.setText(((ProductModel) entrada).getTitle());
 
                 TextView texto_inferior_entrada = (TextView) view.findViewById(R.id.textView_inferior);
-                texto_inferior_entrada.setText(((ProductModel) entrada).getDescription());
+                String descripcion = ((ProductModel)entrada).getDescription()+ "\n"+ "Precio: LPS. "+((ProductModel)entrada).getPrice();
+                texto_inferior_entrada.setText(descripcion);
 
                 ImageView imagen_entrada = (ImageView) view.findViewById(R.id.imageView_imagen);
                 imagen_entrada.setImageResource(((ProductModel) entrada).getImage());
 
-                ImageView carrito = (ImageView) view.findViewById(R.id.imageView_Carro);
+                Button carrito= (Button) view.findViewById(R.id.btn_addCarrito);
 
-
-                EditText textCant= (EditText) view.findViewById(R.id.txtCantidad);
+                final EditText textCant= (EditText) view.findViewById(R.id.txtCantidad);
 
                 textCant.addTextChangedListener(new TextWatcher() {
                     @Override
@@ -64,6 +63,7 @@ public class ProductsActivity extends AppCompatActivity {
                     public void afterTextChanged(Editable editable) {
                         cantidad=0;
                         cantidad=Integer.valueOf(editable.toString());
+
                     }
                 });
 
@@ -78,7 +78,8 @@ public class ProductsActivity extends AppCompatActivity {
                         else{
                             addToCar(cantidad,((ProductModel)entrada));
                             toast = Toast.makeText(ProductsActivity.this, "Se ha añadido el producto "+ ((ProductModel) entrada).getTitle() +
-                                    " con el precio de "+ ((ProductModel) entrada).getPrice() , Toast.LENGTH_LONG);
+                                    " con el precio de "+ ((ProductModel) entrada).getPrice() + " y cantidad de "+cantidad, Toast.LENGTH_LONG);
+                            cantidad=0;
                         }
                         toast.show();
                     }

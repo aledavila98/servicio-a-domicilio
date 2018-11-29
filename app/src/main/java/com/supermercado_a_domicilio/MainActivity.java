@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         SuperActivity.addList(new SuperModel("Super mercado Junior","Bo El centro",R.drawable.sprjunior));
         SuperActivity.addList(new SuperModel("Super mercado La Colonia","Bo El centro",R.drawable.sprlacolonia));
         SuperActivity.addList(new SuperModel("Super mercado La Antorcha","Bo El centro",R.drawable.sprlaantorcha));
-        Intent i = new Intent(this, SuperActivity.class);
+        Intent i = new Intent(MainActivity.this, SuperActivity.class);
         startActivity(i);
     }
 }

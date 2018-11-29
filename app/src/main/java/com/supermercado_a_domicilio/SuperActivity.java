@@ -74,7 +74,7 @@ public class SuperActivity extends AppCompatActivity {
             ProductsActivity.addList(new ProductModel("Coca Cola",50,"Tamaño 3 litros",R.drawable.cocacola));
             ProductsActivity.addList(new ProductModel("Pepsi",52,"Tamaño 3 litros",R.drawable.pepsi));
             System.out.println("Entra");
-            Intent i = new Intent(this, ProductsActivity.class);
+            Intent i = new Intent(SuperActivity.this, ProductsActivity.class);
             startActivity(i);
             System.out.println("Entra");
         }
