@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:minHeight="30dp"
+        android:weightSum="1"
+        android:gravity="center_vertical|center_horizontal"
+        >
+
+       /* <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="---"
+            android:background="@drawable/marcotabla"
+            android:textSize="15sp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="0.20"
+            android:id="@+id/lblSUPER"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="---"
+            android:background="@drawable/marcotabla"
+            android:textSize="15sp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="0.20"
+            android:id="@+id/lblCANT"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="---"
+            android:background="@drawable/marcotabla"
+            android:textSize="15sp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="0.20"
+            android:id="@+id/lblDESC"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="---"
+            android:background="@drawable/marcotabla"
+            android:textSize="15sp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="0.20"
+            android:id="@+id/lblPRICE"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="---"
+            android:background="@drawable/marcotabla"
+            android:textSize="15sp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="0.20"
+            android:id="@+id/lblIMPORTE"
+            />
+
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

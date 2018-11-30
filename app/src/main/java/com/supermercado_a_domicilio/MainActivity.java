@@ -17,9 +17,9 @@ public class MainActivity extends AppCompatActivity {
         //Aqui llenan la lista de los SuperMercados obteniendo los datos de la base de datos, por mientras lo dejare con un par de superes
         if(SuperActivity.getTamList()>0) SuperActivity.clearList();
 
-        SuperActivity.addList(new SuperModel("Super mercado Junior","Bo El centro",R.drawable.sprjunior));
-        SuperActivity.addList(new SuperModel("Super mercado La Colonia","Bo El centro",R.drawable.sprlacolonia));
-        SuperActivity.addList(new SuperModel("Super mercado La Antorcha","Bo El centro",R.drawable.sprlaantorcha));
+        SuperActivity.addList(new SuperModel("Junior","Bo El centro",R.drawable.sprjunior));
+        SuperActivity.addList(new SuperModel("La Colonia","Bo El centro",R.drawable.sprlacolonia));
+        SuperActivity.addList(new SuperModel("La Antorcha","Bo El centro",R.drawable.sprlaantorcha));
         Intent i = new Intent(MainActivity.this, SuperActivity.class);
         startActivity(i);
     }

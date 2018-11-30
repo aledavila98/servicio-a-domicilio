@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Supermercado a Domicilio</string>
-    <string name="super_mercados">Supermercados</string>
+    <string name="super_mercados">Super mercados</string>
+    <string name="detalle_compra">Compra</string>
 </resources>
