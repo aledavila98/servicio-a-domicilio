@@ -1,5 +1,6 @@
 package com.supermercado_a_domicilio;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ public class Login extends AppCompatActivity {
     private Button bCreate, bLogin;
     private EditText etEmail, etPassword;
     private FirebaseAuth mAuth;
+    public static final String EMAIL = "Email";
 
         @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +30,8 @@ public class Login extends AppCompatActivity {
 
         bCreate = findViewById(R.id.bCrear);
         bLogin = findViewById(R.id.bLogin);
-        etEmail = (EditText) findViewById(R.id.etEmail);
-        etPassword = (EditText) findViewById(R.id.etPassword);
+        etEmail = findViewById(R.id.etEmail);
+        etPassword = findViewById(R.id.etPassword);
         mAuth = FirebaseAuth.getInstance();
     }
 
@@ -40,7 +42,7 @@ public class Login extends AppCompatActivity {
     }
 
     protected void registrar(View view) {
-        String email = etEmail.getText().toString();
+        final String email = etEmail.getText().toString();
         String password = etPassword.getText().toString();
 
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -51,6 +53,9 @@ public class Login extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            Intent i = new Intent(Login.this, UserData.class);
+                            i.putExtra(EMAIL,email);
+                            startActivity(i);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
@@ -62,8 +67,8 @@ public class Login extends AppCompatActivity {
     }
 
     protected void entrar(View view) {
-        String email = etEmail.getText().toString();
-        String password = etPassword.getText().toString();
+        final String email = etEmail.getText().toString();
+        final String password = etPassword.getText().toString();
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -73,7 +78,7 @@ public class Login extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-
+                            callSuper(email);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
@@ -86,4 +91,17 @@ public class Login extends AppCompatActivity {
                 });
     }
 
+    public void callSuper (String email){
+        //Aqui llenan la lista de los SuperMercados obteniendo los datos de la base de datos, por mientras lo dejare con un par de superes
+        if(SuperActivity.getTamList()>0)
+            SuperActivity.clearList();
+        SuperActivity.addList(new SuperModel("Junior","Bo El centro",R.drawable.sprjunior));
+        SuperActivity.addList(new SuperModel("La Colonia","Bo El centro",R.drawable.sprlacolonia));
+        SuperActivity.addList(new SuperModel("La Antorcha","Bo El centro",R.drawable.sprlaantorcha));
+        Intent i = new Intent(Login.this, SuperActivity.class);
+        i.putExtra(EMAIL,email);
+        startActivity(i);
+    }
 }
+
+

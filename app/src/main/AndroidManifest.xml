@@ -14,18 +14,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-
-        </activity>
         <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".SuperActivity" />
         <activity android:name=".ProductsActivity" />
-        <activity android:name=".DetalleCompraActivity"></activity>
+        <activity android:name=".DetalleCompraActivity" />
+        <activity android:name=".UserData"></activity>
     </application>
 
 </manifest>

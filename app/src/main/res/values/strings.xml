@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Supermercado a Domicilio</string>
-<<<<<<< HEAD
     <string name="title_activity_login">Sign in</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -14,8 +13,7 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-=======
     <string name="super_mercados">Super mercados</string>
     <string name="detalle_compra">Compra</string>
->>>>>>> 11749705144c89b3c3ea4e2ee4114d5a2a3ba86b
+
 </resources>
