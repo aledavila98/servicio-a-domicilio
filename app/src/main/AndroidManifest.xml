@@ -23,6 +23,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SuperActivity" />
+        <activity android:name=".ProductsActivity" />
+        <activity android:name=".DetalleCompraActivity"></activity>
     </application>
 
 </manifest>
