@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "298666444712-u5bds0l1gf3sgcm8tpnecc2ftb4uguef.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.supermercado_a_domicilio",
+            "certificate_hash": "1b65e046d8141a853e18aec8bb66256615b65729"
+          }
+        },
+        {
           "client_id": "298666444712-aigg7io0n9icl4omvi0pssrretfa3rn6.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -7,81 +7,83 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.ActionCodeSettings;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.AuthResult;
 
 public class Login extends AppCompatActivity {
 
     private static final String TAG = "Logjn";
-    Button bCreate, bLogin;
-    EditText etEmail;
-    ActionCodeSettings actionCodeSettings;
+    private Button bCreate, bLogin;
+    private EditText etEmail, etPassword;
+    private FirebaseAuth mAuth;
 
         @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
-        buildActionCodeSettings();
 
-        bCreate = (Button)findViewById(R.id.bCrear);
-        bLogin = (Button)findViewById(R.id.bLogin);
-        etEmail = (EditText)findViewById(R.id.etEmail);
-
-        bCreate.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        String email = etEmail.getText().toString();
-                        sendSignInLink(email,actionCodeSettings);
-                    }
-                }
-        );
-
+        bCreate = findViewById(R.id.bCrear);
+        bLogin = findViewById(R.id.bLogin);
+        etEmail = (EditText) findViewById(R.id.etEmail);
+        etPassword = (EditText) findViewById(R.id.etPassword);
+        mAuth = FirebaseAuth.getInstance();
     }
 
-    public void buildActionCodeSettings() {
-        actionCodeSettings =
-                ActionCodeSettings.newBuilder()
-                        // URL you want to redirect back to. The domain (www.example.com) for this
-                        // URL must be whitelisted in the Firebase Console.
-                        .setUrl("servicio-a-domicilio-5c125.firebaseapp.com")
-                        // This must be true
-                        .setHandleCodeInApp(true)
-                        .setIOSBundleId("com.example.ios")
-                        .setAndroidPackageName(
-                                "com.supermercado_a_domicilio",
-                                true, /* installIfNotAvailable */
-                                "16"    /* minimumVersion */)
-                        .build();
+    @Override
+    protected void onStart(){
+       super.onStart();
+       FirebaseUser currentUser = mAuth.getCurrentUser();
     }
 
-    public void sendSignInLink(String email, ActionCodeSettings actionCodeSettings) {
-        // [START auth_send_sign_in_link]
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        auth.sendSignInLinkToEmail(email, actionCodeSettings)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
+    protected void registrar(View view) {
+        String email = etEmail.getText().toString();
+        String password = etPassword.getText().toString();
+
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
-                    public void onComplete(@NonNull Task<Void> task) {
+                    public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Log.d(TAG, "Email sent.");
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "createUserWithEmail:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(Login.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
-        // [END auth_send_sign_in_link]
     }
 
-    public void checkCurrentUser() {
-        // [START check_current_user]
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            // User is signed in
-        } else {
-            // No user is signed in
-        }
-        // [END check_current_user]
+    protected void entrar(View view) {
+        String email = etEmail.getText().toString();
+        String password = etPassword.getText().toString();
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithEmail:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithEmail:failure", task.getException());
+                            Toast.makeText(Login.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+
+                        // ...
+                    }
+                });
     }
 
 }
