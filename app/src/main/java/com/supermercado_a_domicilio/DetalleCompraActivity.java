@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public class DetalleCompraActivity extends AppCompatActivity {
 
     public static ArrayList<DetalleCompra> detalles = new ArrayList<>();
+    public static int total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +79,13 @@ public class DetalleCompraActivity extends AppCompatActivity {
     }
 
     public static int getTamList(){return detalles.size();}
+
+    public  static void calcular(){
+        total=0;
+        for (DetalleCompra detalle:detalles) {
+            total+= detalle.getCantidad() * detalle.getProducto().getPrice();
+        }
+    }
 
 
 }
