@@ -35,4 +35,5 @@ public class SuperModel {
     public void setImageId(int imageId) {
         this.imageId = imageId;
     }
+
 }

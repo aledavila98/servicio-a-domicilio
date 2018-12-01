@@ -35,6 +35,7 @@ public class UserData extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
     private String email;
+    public static final String EMAIL = "email";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,5 +65,9 @@ public class UserData extends AppCompatActivity {
 
         Toast toast = Toast.makeText(this,"Se registro exitosamente",Toast.LENGTH_SHORT);
         toast.show();
+
+        Intent intent = new Intent(UserData.this, SuperActivity.class);
+        intent.putExtra(EMAIL,email);
+        startActivity(intent);
     }
 }
