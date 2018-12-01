@@ -24,7 +24,7 @@
         <activity android:name=".SuperActivity" />
         <activity android:name=".ProductsActivity" />
         <activity android:name=".DetalleCompraActivity" />
-        <activity android:name=".UserData"></activity>
+        <activity android:name=".UserData" />
     </application>
 
 </manifest>

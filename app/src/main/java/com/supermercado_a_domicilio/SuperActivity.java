@@ -3,7 +3,9 @@ package com.supermercado_a_domicilio;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -11,9 +13,10 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class SuperActivity extends AppCompatActivity {
+public class SuperActivity extends AppCompatActivity{
 
-
+    private String[] menuOptions = { "Ir a carretilla", "Supermercados", "Cerrar sesion" };;
+    private ListView sideMenu;
     public static ArrayList<SuperModel> datos = new ArrayList<>();
 
     @Override
@@ -22,23 +25,32 @@ public class SuperActivity extends AppCompatActivity {
         setContentView(R.layout.listado_super_mercados);
         this.setTitle(R.string.super_mercados);
 
-        ListView lista = (ListView) findViewById(R.id.ListView_listado);
+     /*   if (savedInstanceState == null) {
+            Carretilla fragmentCarretilla = (Carretilla)
+                    getSupportFragmentManager().findFragmentById(R.id.carretillaFragment);
+        }
+
+*/
+        ListView lista = findViewById(R.id.ListView_listado);
+        sideMenu = findViewById(R.id.left_drawer);
+
+        sideMenu.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menuOptions));
         lista.setAdapter(new Lista_adaptador(this, R.layout.model_super, datos) {
 
             @Override
             public void onEntrada(final Object entrada, View view) {
 
 
-                TextView titulo = (TextView) view.findViewById(R.id.textView_titulo);
+                TextView titulo = view.findViewById(R.id.textView_titulo);
                 titulo.setText(((SuperModel) entrada).getTitle());
 
-                TextView direccion = (TextView) view.findViewById(R.id.textView_direccion);
+                TextView direccion = view.findViewById(R.id.textView_direccion);
                 direccion.setText(((SuperModel) entrada).getDireccion());
 
-                ImageView imagen = (ImageView) view.findViewById(R.id.imageView_imagen);
+                ImageView imagen = view.findViewById(R.id.imageView_imagen);
                 imagen.setImageResource(((SuperModel) entrada).getImageId());
 
-                Button ir = (Button) view.findViewById(R.id.button_ir);
+                Button ir = view.findViewById(R.id.button_ir);
 
                 ir.setOnClickListener(new View.OnClickListener() {
 

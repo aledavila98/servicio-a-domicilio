@@ -36,9 +36,8 @@ public class Login extends AppCompatActivity {
         bLogin = findViewById(R.id.bLogin);
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
-        mAuth = FirebaseAuth.getInstance();<<<<<<< HEAD
-import android.widget.ProgressBar;
-=======
+        mAuth = FirebaseAuth.getInstance();
+
     }
 
     @Override

@@ -5,6 +5,9 @@
     android:orientation="horizontal"
     android:weightSum="1">
 
+
+
+
     <ImageView
         android:id="@+id/imageView_imagen"
         android:layout_width="80dp"
@@ -81,6 +84,7 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="25dp" />
+
     </LinearLayout>
 
 </LinearLayout>
