@@ -40,7 +40,7 @@ public class UserData extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_data);
-
+        setTitle(R.string.userData);
         Intent intent = getIntent();
         email = intent.getStringExtra(Login.EMAIL);
 
@@ -53,16 +53,30 @@ public class UserData extends AppCompatActivity {
 
     protected void registrarInfo(View view)
     {
+
+
         String nombre = etNombre.getText().toString();
         int telefono = Integer.parseInt(etTelefono.getText().toString());
         String direccion = etDireccion.getText().toString();
         String id = etID.getText().toString();
-        UserInformation userInformation = new UserInformation(nombre,telefono,direccion,email);
+        if(nombre.equals("") || direccion.equals("") ||
+                etID.getText().toString().equals("") || etTelefono.getText().toString().equals(""))
+        {
+            Toast.makeText(UserData.this, "Por favor complete los campos.",
+                    Toast.LENGTH_SHORT).show();
+        }
+        else {
+            UserInformation userInformation = new UserInformation(nombre, telefono, direccion, email);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference.child("users-data").child(id).setValue(userInformation);
+            databaseReference = FirebaseDatabase.getInstance().getReference();
+            databaseReference.child("users-data").child(id).setValue(userInformation);
 
-        Toast toast = Toast.makeText(this,"Se registro exitosamente",Toast.LENGTH_SHORT);
-        toast.show();
+            Toast toast = Toast.makeText(this, "Se registro exitosamente", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
+
+    public void callBack(View view) {
+        this.finish();
     }
 }
