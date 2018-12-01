@@ -32,9 +32,9 @@ public class SuperActivity extends AppCompatActivity{
 
 */
         ListView lista = findViewById(R.id.ListView_listado);
-        sideMenu = findViewById(R.id.left_drawer);
+        //sideMenu = findViewById(R.id.left_drawer);
 
-        sideMenu.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menuOptions));
+        //sideMenu.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menuOptions));
         lista.setAdapter(new Lista_adaptador(this, R.layout.model_super, datos) {
 
             @Override

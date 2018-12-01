@@ -5,9 +5,6 @@
     android:orientation="horizontal"
     android:weightSum="1">
 
-
-
-
     <ImageView
         android:id="@+id/imageView_imagen"
         android:layout_width="80dp"
@@ -86,5 +83,11 @@
             android:layout_height="25dp" />
 
     </LinearLayout>
+
+    <fragment android:name="com.supermercado_a_domicilio.Carretilla"
+        android:id="@+id/carretillaFragment"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent" />
 
 </LinearLayout>
