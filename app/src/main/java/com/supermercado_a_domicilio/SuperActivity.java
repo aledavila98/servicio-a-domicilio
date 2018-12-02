@@ -1,15 +1,26 @@
 package com.supermercado_a_domicilio;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDialogFragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.support.v4.app.Fragment;
+import android.widget.Toast;
+
+import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
 
@@ -19,18 +30,54 @@ public class SuperActivity extends AppCompatActivity{
     private ListView sideMenu;
     public static ArrayList<SuperModel> datos = new ArrayList<>();
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
+        switch(item.getItemId()) {
+            case R.id.carretilla:
+                intent = new Intent(SuperActivity.this, DetalleCompraActivity.class);
+                startActivity(intent);
+                return(true);
+            case R.id.profile:
+                intent = new Intent(SuperActivity.this, PerfilCliente.class);
+                startActivity(intent);
+                return(true);
+            case R.id.exit:
+                AuthUI.getInstance()
+                        .signOut(this)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Toast toast = Toast.makeText(SuperActivity.this,"Sesion cerrada exitosamente",Toast.LENGTH_SHORT);
+                                toast.show();
+                            }
+                        });
+                intent = new Intent(SuperActivity.this, Login.class);
+                startActivity(intent);
+                return(true);
+        }
+        return(super.onOptionsItemSelected(item));
+    }
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listado_super_mercados);
         this.setTitle(R.string.super_mercados);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
 
-     /*   if (savedInstanceState == null) {
-            Carretilla fragmentCarretilla = (Carretilla)
-                    getSupportFragmentManager().findFragmentById(R.id.carretillaFragment);
-        }
 
-*/
         ListView lista = findViewById(R.id.ListView_listado);
         //sideMenu = findViewById(R.id.left_drawer);
 
@@ -79,8 +126,7 @@ public class SuperActivity extends AppCompatActivity{
             return datos.size();
         }
 
-
-        public void callProducts (View view){
+        private void llamarProductos() {
             //Aqui llenan la lista de los productos obteniendo los datos de la base de datos, por mientras lo dejare con un par de productos
             if(ProductsActivity.getTamList()>0) ProductsActivity.clearList();
             ProductsActivity.addList(new ProductModel("Coca Cola",50,"Tamaño 3 litros",R.drawable.cocacola));
@@ -89,6 +135,11 @@ public class SuperActivity extends AppCompatActivity{
             Intent i = new Intent(SuperActivity.this, ProductsActivity.class);
             startActivity(i);
             System.out.println("Entra");
+        }
+
+
+        public void callProducts (View view){
+            llamarProductos();
         }
 
 

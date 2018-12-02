@@ -12,7 +12,14 @@
         android:gravity="center_vertical|center_horizontal"
         >
 
-       /* <TextView
+       /*
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.20" />
+
+        <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="---"

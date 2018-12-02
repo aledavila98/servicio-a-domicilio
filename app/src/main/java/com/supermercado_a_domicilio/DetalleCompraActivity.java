@@ -33,23 +33,28 @@ public class DetalleCompraActivity extends AppCompatActivity {
 
             @Override
             public void onEntrada(final Object entrada, View view) {
-                TextView txtSuper= (TextView) view.findViewById(R.id.lblSUPER);
-                txtSuper.setText(String.valueOf(((DetalleCompra) entrada).getSuperMercado()));
 
-                TextView txtCantidad = (TextView) view.findViewById(R.id.lblCANT);
-                txtCantidad.setText(((DetalleCompra) entrada).getCantidad());
+                TextView txtSuper= view.findViewById(R.id.lblSUPER);
+                TextView txtCantidad = view.findViewById(R.id.lblCANT);
+                TextView txtDescripcion = view.findViewById(R.id.lblDESC);
+                TextView txtImporte = view.findViewById(R.id.lblIMPORTE);
 
-                TextView txtDescripcion = (TextView) view.findViewById(R.id.lblDESC);
-                txtDescripcion.setText(((DetalleCompra) entrada).getProducto().getTitle() + ((DetalleCompra) entrada).getProducto().getDescription() );
+                if (detalles.isEmpty()) {
+                    txtCantidad.setText("");
+                    txtSuper.setText("");
+                    txtDescripcion.setText("");
+                    txtImporte.setText("");
+                }
 
-                TextView txtPrecio = (TextView) view.findViewById(R.id.lblPRICE);
-                double price =((DetalleCompra) entrada).getProducto().getPrice();
-                txtCantidad.setText(Double.toString((price)));
-
-                TextView txtImporte = (TextView) view.findViewById(R.id.lblIMPORTE);
-                double importe = price * ((DetalleCompra)entrada).getCantidad();
-                txtCantidad.setText(Double.toString(importe));
-
+                else {
+                    txtSuper.setText(String.valueOf(((DetalleCompra) entrada).getSuperMercado()));
+                    txtCantidad.setText(((DetalleCompra) entrada).getCantidad());
+                    txtDescripcion.setText(((DetalleCompra) entrada).getProducto().getTitle() + ((DetalleCompra) entrada).getProducto().getDescription());
+                    double price = ((DetalleCompra) entrada).getProducto().getPrice();
+                    txtCantidad.setText(Double.toString((price)));
+                    double importe = price * ((DetalleCompra) entrada).getCantidad();
+                    txtImporte.setText(Double.toString(importe));
+                }
 
 
                 /*checkA.setOnClickListener( new View.OnClickListener() {
