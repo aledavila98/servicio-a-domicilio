@@ -39,6 +39,7 @@
                 android:weightSum="1">
 
                 <TextView
+                    android:textAlignment="center"
                     android:id="@+id/textView_superior"
                     android:layout_width="273dp"
                     android:layout_height="wrap_content"

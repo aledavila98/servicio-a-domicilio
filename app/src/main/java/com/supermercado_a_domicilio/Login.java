@@ -112,11 +112,11 @@ public class Login extends AppCompatActivity {
         if(SuperActivity.getTamList()>0)
             SuperActivity.clearList();
         SuperActivity.addList(new SuperModel("Los Andes","Dirección: 15 Avenida 6 Calle NO. Barrio Los Andes,21102 San Pedro Sula Cortes" +
-                "/n Pagina Web: www.comisiaratolosandes.com /n Teléfono: 25454500" ,R.drawable.losandes));
+                "\nTeléfono: 25454500" ,R.drawable.losandes));
         SuperActivity.addList(new SuperModel("El Colonial","Dirección: Avenida Circunvalacion, 21101 San Pedro Sula, Cortes" +
-                "/n Pagina Web: www.supercolonial.com /n Teléfono: 25456440",R.drawable.colonial));
-        SuperActivity.addList(new SuperModel("La Colonia","Dirección: Plaza 105 Brigada, Las Acacias Neighborhood, San Pedro Sula 21102 /n Teléfono: 2216-1900",R.drawable.sprlacolonia));
-        SuperActivity.addList(new SuperModel("La Antorcha","Dirección: Bulevar del Este, San Pedro Sula 21103 /n Teléfono: 2544-0475",R.drawable.sprlaantorcha));
+                "\nTeléfono: 25456440",R.drawable.colonial));
+        SuperActivity.addList(new SuperModel("La Colonia","Dirección: Plaza 105 Brigada, Las Acacias Neighborhood, San Pedro Sula 21102 \nTeléfono: 2216-1900",R.drawable.sprlacolonia));
+        SuperActivity.addList(new SuperModel("La Antorcha","Dirección: Bulevar del Este, San Pedro Sula 21103 \nTeléfono: 2544-0475",R.drawable.antorhca));
         Intent i = new Intent(Login.this, SuperActivity.class);
         i.putExtra(EMAIL,email);
         startActivity(i);
