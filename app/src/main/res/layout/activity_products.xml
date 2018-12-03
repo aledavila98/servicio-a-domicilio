@@ -17,8 +17,8 @@
 
     <ListView
         android:id="@+id/ListView_products"
-        android:layout_width="396dp"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="511dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -26,6 +26,7 @@
         android:layout_weight="0.37"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="11dp" />
+
 
 
 </LinearLayout>

@@ -25,7 +25,8 @@ import java.util.ArrayList;
 public class DetalleCompraActivity extends AppCompatActivity {
 
     public static ArrayList<DetalleCompra> detalles = new ArrayList<>();
-    public static int total;
+    public static double total;
+    public static TextView txtTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +34,10 @@ public class DetalleCompraActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detalle_compra);
 
         this.setTitle(R.string.detalle_compra);
+        txtTotal = (TextView) findViewById(R.id.textViewTotal);
 
-
-
+        TextView txtTime = (TextView) findViewById(R.id.textViewEntrega);
+        txtTime.setText(" Tiempo de entrega: 1 h");
         ListView lista = findViewById(R.id.listDetalle);
         lista.setAdapter(new Lista_adaptador(this, R.layout.model_detalle, detalles){
 
@@ -53,6 +55,8 @@ public class DetalleCompraActivity extends AppCompatActivity {
                 txtCantidad.setText(Double.toString((price)));
                 double importe = price * ((DetalleCompra) entrada).getCantidad();
                 txtImporte.setText(Double.toString(importe));
+
+
 
 
                 /*checkA.setOnClickListener( new View.OnClickListener() {
@@ -83,12 +87,11 @@ public class DetalleCompraActivity extends AppCompatActivity {
 
     public static int getTamList(){return detalles.size();}
 
-    public  static void calcular(){
+    public static void calcular(){
         total=0;
         for (DetalleCompra detalle:detalles) {
             total+= detalle.getCantidad() * detalle.getProducto().getPrice();
         }
+        txtTotal.setText("Total a pagar: "+ total);
     }
-
-
 }
