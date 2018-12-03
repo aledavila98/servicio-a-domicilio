@@ -128,6 +128,10 @@ public class SuperActivity extends AppCompatActivity{
             if(ProductsActivity.getTamList()>0) ProductsActivity.clearList();
             ProductsActivity.addList(new ProductModel("Coca Cola",50,"Tamaño 3 litros",R.drawable.cocacola));
             ProductsActivity.addList(new ProductModel("Pepsi",52,"Tamaño 3 litros",R.drawable.pepsi));
+            ProductsActivity.addList(new ProductModel("Pollo entero (lb)", 36, "8 lb", R.drawable.pollo_entero));
+            ProductsActivity.addList(new ProductModel("Maseca (lb)", 10, "1 lb", R.drawable.maseca));
+            ProductsActivity.addList(new ProductModel("Chuleta de cerdo (lb)", 50, "Por unidad", R.drawable.chuleta_de_cerdo));
+            ProductsActivity.addList(new ProductModel("Arroz Mr. Dieck", 10, "3 lb", R.drawable.arroz));
             System.out.println("Entra");
             Intent i = new Intent(SuperActivity.this, ProductsActivity.class);
             startActivity(i);

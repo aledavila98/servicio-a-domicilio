@@ -71,7 +71,7 @@ public class ProductsActivity extends AppCompatActivity {
         Toolbar myToolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        ListView lista = (ListView) findViewById(R.id.ListView_products);
+        ListView lista = findViewById(R.id.ListView_products);
         lista.setAdapter(new Lista_adaptador(this, R.layout.model_product, datos) {
 
             @Override
