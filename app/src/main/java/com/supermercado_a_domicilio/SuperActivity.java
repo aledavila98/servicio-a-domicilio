@@ -47,10 +47,7 @@ public class SuperActivity extends AppCompatActivity{
                 intent = new Intent(SuperActivity.this, DetalleCompraActivity.class);
                 startActivity(intent);
                 return(true);
-            case R.id.profile:
-                intent = new Intent(SuperActivity.this, PerfilCliente.class);
-                startActivity(intent);
-                return(true);
+
             case R.id.exit:
                 AuthUI.getInstance()
                         .signOut(this)
@@ -74,7 +71,7 @@ public class SuperActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listado_super_mercados);
         this.setTitle(R.string.super_mercados);
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        Toolbar myToolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
 

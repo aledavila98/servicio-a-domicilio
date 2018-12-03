@@ -1,9 +1,13 @@
 package com.supermercado_a_domicilio;
 
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -12,12 +16,20 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+
 import java.util.ArrayList;
 
 public class DetalleCompraActivity extends AppCompatActivity {
 
     public static ArrayList<DetalleCompra> detalles = new ArrayList<>();
     public static int total;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

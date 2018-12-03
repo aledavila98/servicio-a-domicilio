@@ -1,10 +1,14 @@
 package com.supermercado_a_domicilio;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,12 +18,49 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+
 import java.util.ArrayList;
 
 public class ProductsActivity extends AppCompatActivity {
 
     public static ArrayList<ProductModel> datos = new ArrayList<>();
     public  int cantidad=0;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
+        switch(item.getItemId()) {
+            case R.id.carretilla:
+                intent = new Intent(ProductsActivity.this, DetalleCompraActivity.class);
+                startActivity(intent);
+                return(true);
+
+            case R.id.exit:
+                AuthUI.getInstance()
+                        .signOut(this)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Toast toast = Toast.makeText(ProductsActivity.this,"Sesion cerrada exitosamente",Toast.LENGTH_SHORT);
+                                toast.show();
+                            }
+                        });
+                intent = new Intent(ProductsActivity.this, Login.class);
+                startActivity(intent);
+                return(true);
+        }
+        return(super.onOptionsItemSelected(item));
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +68,8 @@ public class ProductsActivity extends AppCompatActivity {
 
         this.setTitle(SuperModel.superActual);
 
+        Toolbar myToolbar = findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
 
         ListView lista = (ListView) findViewById(R.id.ListView_products);
         lista.setAdapter(new Lista_adaptador(this, R.layout.model_product, datos) {
