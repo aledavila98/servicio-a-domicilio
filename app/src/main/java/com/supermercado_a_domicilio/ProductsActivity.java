@@ -38,7 +38,7 @@ public class ProductsActivity extends AppCompatActivity {
                 texto_superior_entrada.setText(((ProductModel) entrada).getTitle());
 
                 TextView texto_inferior_entrada = (TextView) view.findViewById(R.id.textView_inferior);
-                String descripcion = ((ProductModel)entrada).getDescription()+ "\n"+ "Precio: LPS. "+((ProductModel)entrada).getPrice();
+                String descripcion = ((ProductModel)entrada).getDescription()+ "\n"+ "Precio: "+((ProductModel)entrada).getPrice() + " LPS";
                 texto_inferior_entrada.setText(descripcion);
 
                 ImageView imagen_entrada = (ImageView) view.findViewById(R.id.imageView_imagen);
