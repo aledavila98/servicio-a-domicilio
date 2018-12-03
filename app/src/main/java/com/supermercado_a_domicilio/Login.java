@@ -111,9 +111,12 @@ public class Login extends AppCompatActivity {
         //Aqui llenan la lista de los SuperMercados obteniendo los datos de la base de datos, por mientras lo dejare con un par de superes
         if(SuperActivity.getTamList()>0)
             SuperActivity.clearList();
-        SuperActivity.addList(new SuperModel("Junior","Bo El centro",R.drawable.sprjunior));
-        SuperActivity.addList(new SuperModel("La Colonia","Bo El centro",R.drawable.sprlacolonia));
-        SuperActivity.addList(new SuperModel("La Antorcha","Bo El centro",R.drawable.sprlaantorcha));
+        SuperActivity.addList(new SuperModel("Los Andes","Dirección: 15 Avenida 6 Calle NO. Barrio Los Andes,21102 San Pedro Sula Cortes" +
+                "/n Pagina Web: www.comisiaratolosandes.com /n Teléfono: 25454500" ,R.drawable.losandes));
+        SuperActivity.addList(new SuperModel("El Colonial","Dirección: Avenida Circunvalacion, 21101 San Pedro Sula, Cortes" +
+                "/n Pagina Web: www.supercolonial.com /n Teléfono: 25456440",R.drawable.colonial));
+        SuperActivity.addList(new SuperModel("La Colonia","Dirección: Plaza 105 Brigada, Las Acacias Neighborhood, San Pedro Sula 21102 /n Teléfono: 2216-1900",R.drawable.sprlacolonia));
+        SuperActivity.addList(new SuperModel("La Antorcha","Dirección: Bulevar del Este, San Pedro Sula 21103 /n Teléfono: 2544-0475",R.drawable.sprlaantorcha));
         Intent i = new Intent(Login.this, SuperActivity.class);
         i.putExtra(EMAIL,email);
         startActivity(i);
