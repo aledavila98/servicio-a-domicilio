@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="13dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="17dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="177dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView_imagen"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="Descripción del contenido de la imagen"
+                        android:scaleType="fitXY"
+                        android:src="@android:drawable/ic_menu_gallery" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="21dp" />
+
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="14dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:layout_width="270dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.97"
+                    android:baselineAligned="false"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/textView_titulo"
+                        android:layout_width="245dp"
+                        android:layout_height="wrap_content"
+                        android:text="Titulo"
+                        android:textAlignment="center"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                    <TextView
+                        android:id="@+id/textView_direccion"
+                        android:layout_width="245dp"
+                        android:layout_height="79dp"
+
+                        android:layout_weight="0.73"
+                        android:text="Direccion"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp"
+                        android:layout_weight="0.24" />
+
+                    <Button
+                        android:id="@+id/button_ir"
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:backgroundTint="#d8001b"
+                        android:drawableLeft="@drawable/shopping"
+                        android:drawablePadding="8dp"
+                        android:text="Comprar"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                        android:textColor="#ffffff" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

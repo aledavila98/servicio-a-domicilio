@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PerfilCliente">
+
+    <TextView
+        android:id="@+id/tbName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="208dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tbId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/tbName"
+        app:layout_constraintTop_toBottomOf="@+id/tbName" />
+
+    <TextView
+        android:id="@+id/tbCorreo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/tbId"
+        app:layout_constraintTop_toBottomOf="@+id/tbId" />
+
+    <TextView
+        android:id="@+id/tbDireccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/tbCorreo"
+        app:layout_constraintTop_toBottomOf="@+id/tbCorreo" />
+</android.support.constraint.ConstraintLayout>

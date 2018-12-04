@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "298666444712",
+    "firebase_url": "https://servicio-a-domicilio-5c125.firebaseio.com",
+    "project_id": "servicio-a-domicilio-5c125",
+    "storage_bucket": "servicio-a-domicilio-5c125.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:298666444712:android:bb1abb5a4a683089",
+        "android_client_info": {
+          "package_name": "com.supermercado_a_domicilio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "298666444712-udg4n2ln22htam14jpkffpc2j50rhugn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.supermercado_a_domicilio",
+            "certificate_hash": "57e170ae5c6411c38266d3ae51d22c5cdbb7c365"
+          }
+        },
+        {
+          "client_id": "298666444712-u5bds0l1gf3sgcm8tpnecc2ftb4uguef.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.supermercado_a_domicilio",
+            "certificate_hash": "1b65e046d8141a853e18aec8bb66256615b65729"
+          }
+        },
+        {
+          "client_id": "298666444712-aigg7io0n9icl4omvi0pssrretfa3rn6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoYoIrGK1HTrb9eYzuuzptKHm-Dl9Os3k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "298666444712-aigg7io0n9icl4omvi0pssrretfa3rn6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
