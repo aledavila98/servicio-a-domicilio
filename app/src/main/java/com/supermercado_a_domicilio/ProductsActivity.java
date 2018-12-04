@@ -105,8 +105,9 @@ public class ProductsActivity extends AppCompatActivity {
 
                     @Override
                     public void afterTextChanged(Editable editable) {
-                        cantidad=Integer.valueOf(editable.toString());
                         cantidad = 0;
+                        cantidad=Integer.valueOf(editable.toString());
+
                     }
                 });
 
