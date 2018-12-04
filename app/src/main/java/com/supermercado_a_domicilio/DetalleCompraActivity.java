@@ -41,7 +41,7 @@ public class DetalleCompraActivity extends AppCompatActivity {
         txtTotal = findViewById(R.id.textViewTotal);
         txtEntrega =findViewById(R.id.textEntrega);
         txtEntrega.setText(" Tiempo de entrega: 1 hora");
-
+        calcular();
         ListView lista = (ListView) findViewById(R.id.listDetalle);
         lista.setAdapter(new Lista_adaptador(this, R.layout.model_detalle, detalles){
 
@@ -97,9 +97,10 @@ public class DetalleCompraActivity extends AppCompatActivity {
     public  static void calcular(){
         total=0;
         for (DetalleCompra detalle:detalles) {
-            total+= detalle.getCantidad() * detalle.getProducto().getPrice();
+            double c = detalle.getCantidad() ;
+            total += c* detalle.getProducto().getPrice();
         }
-        txtTotal.setText(" Total: " + Double.toString(total));
+        txtTotal.setText(" Total: " + Double.toString(total) + " LPS");
     }
 
 
