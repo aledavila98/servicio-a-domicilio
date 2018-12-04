@@ -78,19 +78,19 @@ public class ProductsActivity extends AppCompatActivity {
             @Override
             public void onEntrada(final Object entrada, View view) {
 
-                TextView texto_superior_entrada = (TextView) view.findViewById(R.id.textView_superior);
+                TextView texto_superior_entrada = view.findViewById(R.id.textView_superior);
                 texto_superior_entrada.setText(((ProductModel) entrada).getTitle());
 
-                TextView texto_inferior_entrada = (TextView) view.findViewById(R.id.textView_inferior);
+                TextView texto_inferior_entrada = view.findViewById(R.id.textView_inferior);
                 String descripcion = ((ProductModel)entrada).getDescription()+ "\n"+ "Precio: "+((ProductModel)entrada).getPrice() + " LPS";
                 texto_inferior_entrada.setText(descripcion);
 
-                ImageView imagen_entrada = (ImageView) view.findViewById(R.id.imageView_imagen);
+                ImageView imagen_entrada = view.findViewById(R.id.imageView_imagen);
                 imagen_entrada.setImageResource(((ProductModel) entrada).getImage());
 
-                Button carrito= (Button) view.findViewById(R.id.btn_addCarrito);
+                Button carrito= view.findViewById(R.id.btn_addCarrito);
 
-                final EditText textCant= (EditText) view.findViewById(R.id.txtCantidad);
+                final EditText textCant= view.findViewById(R.id.txtCantidad);
 
                 textCant.addTextChangedListener(new TextWatcher() {
                     @Override

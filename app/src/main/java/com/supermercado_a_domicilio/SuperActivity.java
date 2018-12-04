@@ -26,8 +26,6 @@ import java.util.ArrayList;
 
 public class SuperActivity extends AppCompatActivity{
 
-    private String[] menuOptions = { "Ir a carretilla", "Supermercados", "Cerrar sesion" };;
-    private ListView sideMenu;
     public static ArrayList<SuperModel> datos = new ArrayList<>();
 
 
@@ -132,7 +130,7 @@ public class SuperActivity extends AppCompatActivity{
             ProductsActivity.addList(new ProductModel("Pollo entero (lb)", 36, "8 lb", R.drawable.polloentero));
             ProductsActivity.addList(new ProductModel("Maseca (lb)", 10, "1 lb", R.drawable.maseca));
             ProductsActivity.addList(new ProductModel("Chuleta de cerdo (lb)", 50, "Por unidad", R.drawable.chuletadecerdo));
-            ProductsActivity.addList(new ProductModel("Arroz Mr. Dieck", 10, "3 lb", R.drawable.arroz));
+            ProductsActivity.addList(new ProductModel("Arroz Mr. Dieck", 11, "3 lb", R.drawable.arroz));
             System.out.println("Entra");
             Intent i = new Intent(SuperActivity.this, ProductsActivity.class);
             startActivity(i);
