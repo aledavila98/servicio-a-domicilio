@@ -23,7 +23,7 @@
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
+                android:layout_width="356dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/registro" />
@@ -35,7 +35,7 @@
             android:orientation="horizontal">
 
             <Space
-                android:layout_width="86dp"
+                android:layout_width="97dp"
                 android:layout_height="12dp"
                 android:layout_weight="1" />
 
@@ -123,12 +123,12 @@
 
                     <Button
                         android:id="@+id/bRegistrar"
-                        android:layout_width="113dp"
+                        android:layout_width="141dp"
                         android:layout_height="50dp"
                         android:background="@color/colorPrimary"
                         android:onClick="registrarInfo"
                         android:text="Registrarse"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
                         android:textColor="#ffffff" />
 
                     <Space
