@@ -45,6 +45,7 @@ public class SuperActivity extends AppCompatActivity{
         switch(item.getItemId()) {
             case R.id.carretilla:
                 DetalleCompraActivity.calcular();
+                DetalleCompraActivity.print();
                 intent = new Intent(SuperActivity.this, DetalleCompraActivity.class);
                 startActivity(intent);
                 return(true);

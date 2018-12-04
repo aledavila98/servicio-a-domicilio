@@ -44,15 +44,16 @@ public class DetalleCompraActivity extends AppCompatActivity {
             @Override
             public void onEntrada(final Object entrada, View view) {
 
-                TextView txtSuper= view.findViewById(R.id.lblSUPER);
-                TextView txtCantidad = view.findViewById(R.id.lblCANT);
-                TextView txtDescripcion = view.findViewById(R.id.lblDESC);
-                TextView txtImporte = view.findViewById(R.id.lblIMPORTE);
+                TextView txtSuper=(TextView) view.findViewById(R.id.lblSUPER);
+                TextView txtCantidad =(TextView) view.findViewById(R.id.lblCANT);
+                TextView txtDescripcion =(TextView) view.findViewById(R.id.lblDESC);
+                TextView txtImporte =(TextView) view.findViewById(R.id.lblIMPORTE);
+                TextView txtPrecio =(TextView) view.findViewById(R.id.lblPRICE);
                 txtSuper.setText(String.valueOf(((DetalleCompra) entrada).getSuperMercado()));
                 txtCantidad.setText(((DetalleCompra) entrada).getCantidad());
                 txtDescripcion.setText(((DetalleCompra) entrada).getProducto().getTitle() + ((DetalleCompra) entrada).getProducto().getDescription());
                 double price = ((DetalleCompra) entrada).getProducto().getPrice();
-                txtCantidad.setText(Double.toString((price)));
+                txtPrecio.setText(Double.toString((price)));
                 double importe = price * ((DetalleCompra) entrada).getCantidad();
                 txtImporte.setText(Double.toString(importe));
 
@@ -93,5 +94,11 @@ public class DetalleCompraActivity extends AppCompatActivity {
             total+= detalle.getCantidad() * detalle.getProducto().getPrice();
         }
         txtTotal.setText("Total a pagar: "+ total);
+    }
+
+    public  static void print(){
+        for (DetalleCompra d:detalles) {
+            System.out.println("Cantidad "+ d.getCantidad());
+        }
     }
 }
