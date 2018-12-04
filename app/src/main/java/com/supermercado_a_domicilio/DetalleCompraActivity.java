@@ -9,6 +9,7 @@ import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -25,7 +26,10 @@ import java.util.ArrayList;
 public class DetalleCompraActivity extends AppCompatActivity {
 
     public static ArrayList<DetalleCompra> detalles = new ArrayList<>();
-    public static int total;
+    public static double total;
+    public  static TextView txtTotal;
+    public  static TextView txtEntrega;
+    //public  static Button btnPagar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +38,9 @@ public class DetalleCompraActivity extends AppCompatActivity {
 
         this.setTitle(R.string.detalle_compra);
 
-
+        txtTotal = findViewById(R.id.textViewTotal);
+        txtEntrega =findViewById(R.id.textEntrega);
+        txtEntrega.setText(" Tiempo de entrega: 1 hora");
 
         ListView lista = (ListView) findViewById(R.id.listDetalle);
         lista.setAdapter(new Lista_adaptador(this, R.layout.model_detalle, detalles){
@@ -52,12 +58,12 @@ public class DetalleCompraActivity extends AppCompatActivity {
                 int cantidad = ((DetalleCompra) entrada).getCantidad();
                 txtCantidad.setText(Integer.toString(cantidad));
 
-                txtDescripcion.setText(((DetalleCompra) entrada).getProducto().getTitle() + " " + ((DetalleCompra) entrada).getProducto().getDescription());
+                txtDescripcion.setText(((DetalleCompra) entrada).getProducto().getTitle() + "\n" + ((DetalleCompra) entrada).getProducto().getDescription());
 
                 double price = ((DetalleCompra) entrada).getProducto().getPrice();
                 txtPrecio.setText(Double.toString((price)));
                 double importe = price * ((DetalleCompra) entrada).getCantidad();
-                txtImporte.setText(Double.toString(importe));
+                txtImporte.setText(Double.toString(importe) + " LPS");
 
 
                 /*checkA.setOnClickListener( new View.OnClickListener() {
@@ -93,6 +99,7 @@ public class DetalleCompraActivity extends AppCompatActivity {
         for (DetalleCompra detalle:detalles) {
             total+= detalle.getCantidad() * detalle.getProducto().getPrice();
         }
+        txtTotal.setText(" Total: " + Double.toString(total));
     }
 
 

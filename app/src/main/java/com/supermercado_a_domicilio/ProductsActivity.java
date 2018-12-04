@@ -42,6 +42,7 @@ public class ProductsActivity extends AppCompatActivity {
         Intent intent;
         switch(item.getItemId()) {
             case R.id.carretilla:
+                DetalleCompraActivity.calcular();
                 intent = new Intent(ProductsActivity.this, DetalleCompraActivity.class);
                 startActivity(intent);
                 return(true);

@@ -5,24 +5,22 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:minHeight="30dp"
-        android:weightSum="1"
+        android:layout_height="63dp"
         android:gravity="center_vertical|center_horizontal"
-        >
+        android:minHeight="30dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
 
         /*
 
         <TextView
+            android:id="@+id/lblSUPER"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="---"
-            android:textSize="15sp"
             android:layout_gravity="center_vertical|center_horizontal"
             android:layout_weight="0.20"
-            android:id="@+id/lblSUPER"
-            />
+            android:text="---"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/lblCANT"
@@ -30,7 +28,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical|center_horizontal"
             android:layout_weight="0.10"
-
+            android:textAlignment="center"
             android:text="---"
             android:textSize="15sp" />
 
@@ -39,7 +37,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:layout_weight="0.30"
+            android:layout_weight="0.40"
             android:text="---"
             android:textSize="15sp" />
 
@@ -48,7 +46,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:layout_weight="0.20"
+            android:layout_weight="0.15"
             android:text="---"
             android:textSize="15sp" />
 
