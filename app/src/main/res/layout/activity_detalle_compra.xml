@@ -35,7 +35,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical|center_horizontal"
-                android:layout_weight="0.20"
+                android:layout_weight="0.10"
                 android:text="Uds"
                 android:textColor="#ff003344"
                 android:textSize="20sp" />
@@ -45,8 +45,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical|center_horizontal"
-                android:layout_weight="0.20"
-                android:text="Descr"
+                android:layout_weight="0.40"
+                android:text=" Descripcion"
                 android:textColor="#ff003344"
                 android:textSize="20sp" />
 
@@ -55,7 +55,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical|center_horizontal"
-                android:layout_weight="0.20"
+                android:layout_weight="0.15"
                 android:text="PxU"
                 android:textColor="#ff003344"
                 android:textSize="20sp" />
@@ -65,21 +65,24 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical|center_horizontal"
-                android:layout_weight="0.20"
-                android:text="Importe"
+                android:layout_weight="0.15"
+                android:text="Total"
                 android:textColor="#ff003344"
                 android:textSize="20sp" />
         </LinearLayout>
 
         <ListView
             android:id="@+id/listDetalle"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingStart="50dp"
-            android:paddingLeft="50dp"
-            android:paddingEnd="50dp"
-            android:paddingRight="50dp"
-            />
+            android:layout_width="396dp"
+            android:layout_height="512dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_weight="0.37"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="11dp" />
+
 
     </LinearLayout>
 
